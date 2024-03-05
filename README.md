@@ -59,12 +59,6 @@ You can test the application using `curl` to ensure that the set and get functio
    To retrieve a value for a given key from Redis, use the following command:
 
    ```bash
-   curl http://localhost:5000/get/<key>
-   ```
-
-   Example:
-
-   ```bash
    curl http://localhost:5000/get/1
    ```
 
