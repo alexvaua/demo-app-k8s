@@ -19,7 +19,7 @@ def get_value(key):
     """get function"""
     value = db.get(key)
     if value is not None:
-        return 'Get: ' + value.decode('utf-8')
+        return value.decode('utf-8')
     else:
         return 'Get Key not found', 404
 
