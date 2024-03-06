@@ -33,7 +33,7 @@ clean() {
     helm delete ${APP}
     kubectl delete ns ${APP}-ns
     curl -sS -o /dev/null http://localhost:5000/get/1 >/dev/null 2>&1
-    rm -rf ${APP}/charts/redis*
+    rm -rf ${APP}/charts/redis* ${APP}/Chart.lock
 }
 
 build() {
