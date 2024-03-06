@@ -5,7 +5,8 @@ import redis
 app = Flask(__name__)
 redis_host = os.environ.get('REDIS_HOST', 'localhost')
 redis_port = os.environ.get('REDIS_PORT', 6379)
-db = redis.Redis(host=redis_host, port=redis_port)
+redis_password = os.environ.get('REDIS_PASSWORD', '')
+db = redis.Redis(host=redis_host, port=redis_port, password=redis_password)
 
 @app.route('/set/<key>', methods=['POST'])
 def set_value(key):
@@ -22,6 +23,11 @@ def get_value(key):
         return value.decode('utf-8')
     else:
         return 'Get Key not found', 404
+
+@app.route('/', methods=['GET'])
+def home():
+    """probe"""
+    return "<h1>check</h1>"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
