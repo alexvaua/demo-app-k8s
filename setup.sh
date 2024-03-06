@@ -50,7 +50,7 @@ build() {
     fi
 }
 
-redis_running() {
+run() {
     POD_NAME="${APP}-redis-master-0"
 
     INTERVAL=5
@@ -74,4 +74,4 @@ redis_running() {
 
 build
 deploy
-redis_running
+run
